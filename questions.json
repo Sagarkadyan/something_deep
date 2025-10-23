@@ -1,0 +1,1087 @@
+[
+  {
+    "topic": "Unit 6, Week 3",
+    "questions": [
+      {
+        "question": "What does the `marks` dictionary store?",
+        "options": [
+          "A list of students and their total marks",
+          "A list of subjects and the average marks in each subject",
+          "Each student's name as a key and a list of their marks in three subjects as the value",
+          "The rank of each student"
+        ],
+        "answer": "Each student's name as a key and a list of their marks in three subjects as the value"
+      },
+      {
+        "question": "How would you access Zoya's marks in Science?",
+        "options": [
+          "`marks['Zoya'][1]`",
+          "`marks['Zoya'][2]`",
+          "`marks[1]['Zoya']`",
+          "`marks['Zoya']['Science']`"
+        ],
+        "answer": "`marks['Zoya'][1]`"
+      },
+      {
+        "question": "What is the purpose of the `student_details` list of dictionaries?",
+        "options": [
+          "To store the total marks of each student",
+          "To provide a more structured way to store each student's name, age, and house",
+          "To list the subjects for the exam",
+          "To rank the students based on their age"
+        ],
+        "answer": "To provide a more structured way to store each student's name, age, and house"
+      },
+      {
+        "question": "How would you find the age of the second student in the `student_details` list?",
+        "options": [
+          "`student_details[1]['age']`",
+          "`student_details['age'][1]`",
+          "`student_details[1].age`",
+          "`student_details.get(1).get('age')`"
+        ],
+        "answer": "`student_details[1]['age']`"
+      },
+      {
+        "question": "If you wanted to add a new student, Priya, with marks [88, 91, 85], to the `marks` dictionary, what code would you use?",
+        "options": [
+          "`marks.add('Priya', [88, 91, 85])`",
+          "`marks['Priya'] = [88, 91, 85]`",
+          "`marks.append({'Priya': [88, 91, 85]})`",
+          "`marks.update({'Priya': [88, 91, 85]})`"
+        ],
+        "answer": "`marks['Priya'] = [88, 91, 85]`"
+      },
+      {
+        "question": "What is the main advantage of using a list of dictionaries (`student_details`) over a dictionary of lists (`marks`) for storing student data?",
+        "options": [
+          "It is easier to add new students",
+          "It uses less memory",
+          "It can store more types of data (e.g., name, age, house) in a structured way",
+          "It is faster to search for a student by name"
+        ],
+        "answer": "It can store more types of data (e.g., name, age, house) in a structured way"
+      },
+      {
+        "question": "How would you print the house of the student named 'Ravi' from the `student_details` list?",
+        "options": [
+          "`student_details[1]['house']`",
+          "By iterating through the list and checking the 'name' key for 'Ravi'",
+          "`student_details['Ravi']['house']`",
+          "`student_details.get_house('Ravi')`"
+        ],
+        "answer": "By iterating through the list and checking the 'name' key for 'Ravi'"
+      },
+      {
+        "question": "Which data structure is more suitable if you want to quickly find a student's marks by their name?",
+        "options": [
+          "The `marks` dictionary",
+          "The `student_details` list",
+          "Both are equally suitable",
+          "Neither is suitable"
+        ],
+        "answer": "The `marks` dictionary"
+      },
+      {
+        "question": "If you wanted to calculate the average marks for Aanya, what would be the correct code?",
+        "options": [
+          "`sum(marks['Aanya']) / 3`",
+          "`avg(marks['Aanya'])`",
+          "`marks['Aanya'].mean()`",
+          "`(85 + 90 + 88) / 3`"
+        ],
+        "answer": "`sum(marks['Aanya']) / 3`"
+      },
+      {
+        "question": "What is a key difference between a dictionary and a list in Python?",
+        "options": [
+          "A dictionary is ordered, while a list is unordered",
+          "A list can store different data types, while a dictionary cannot",
+          "A dictionary uses key-value pairs, while a list uses integer indices",
+          "A list is mutable, while a dictionary is immutable"
+        ],
+        "answer": "A dictionary uses key-value pairs, while a list uses integer indices"
+      }
+    ]
+  },
+  {
+    "topic": "Unit 14, Week 11",
+    "questions": [
+      {
+        "question": "What is the purpose of the `requests` library in Python?",
+        "options": [
+          "To create graphical user interfaces.",
+          "To perform data analysis.",
+          "To send HTTP requests and handle responses.",
+          "To work with operating system functionalities."
+        ],
+        "answer": "To send HTTP requests and handle responses."
+      },
+      {
+        "question": "Which function from the `requests` library is used to send a GET request?",
+        "options": [
+          "`requests.post()`",
+          "`requests.get()`",
+          "`requests.fetch()`",
+          "`requests.request()`"
+        ],
+        "answer": "`requests.get()`"
+      },
+      {
+        "question": "What does the `response.status_code` attribute represent?",
+        "options": [
+          "The content of the response.",
+          "The headers of the response.",
+          "The HTTP status code of the response (e.g., 200 for OK, 404 for Not Found).",
+          "The time it took to receive the response."
+        ],
+        "answer": "The HTTP status code of the response (e.g., 200 for OK, 404 for Not Found)."
+      },
+      {
+        "question": "How do you access the content of the response as text?",
+        "options": [
+          "`response.text`",
+          "`response.content`",
+          "`response.json()`",
+          "`response.data`"
+        ],
+        "answer": "`response.text`"
+      },
+      {
+        "question": "What is the purpose of the `BeautifulSoup` library?",
+        "options": [
+          "To send HTTP requests.",
+          "To parse HTML and XML documents.",
+          "To create and manage databases.",
+          "To build web servers."
+        ],
+        "answer": "To parse HTML and XML documents."
+      },
+      {
+        "question": "In the line `soup = BeautifulSoup(response.text, 'html.parser')`, what is the second argument (`'html.parser'`)?",
+        "options": [
+          "The URL of the website.",
+          "The HTML content to be parsed.",
+          "The name of the parser to be used.",
+          "The headers for the HTTP request."
+        ],
+        "answer": "The name of the parser to be used."
+      },
+      {
+        "question": "How would you find all the `<h1>` tags in a BeautifulSoup object named `soup`?",
+        "options": [
+          "`soup.find('h1')`",
+          "`soup.findall('h1')`",
+          "`soup.select('h1')`",
+          "`soup.get('h1')`"
+        ],
+        "answer": "`soup.findall('h1')`"
+      },
+      {
+        "question": "What does the `.text` attribute of a BeautifulSoup tag object return?",
+        "options": [
+          "The tag name.",
+          "The attributes of the tag.",
+          "The inner text of the tag, with all HTML tags removed.",
+          "The full HTML of the tag."
+        ],
+        "answer": "The inner text of the tag, with all HTML tags removed."
+      },
+      {
+        "question": "If you want to extract all the links (URLs) from a webpage, which tag should you typically look for?",
+        "options": [
+          "`<img>`",
+          "`<a>`",
+          "`<p>`",
+          "`<div>`"
+        ],
+        "answer": "`<a>`"
+      },
+      {
+        "question": "What is web scraping?",
+        "options": [
+          "The process of creating a website from scratch.",
+          "The automated process of extracting data from websites.",
+          "A method for designing the visual layout of a webpage.",
+          "The act of manually copying and pasting information from the internet."
+        ],
+        "answer": "The automated process of extracting data from websites."
+      }
+    ]
+  },
+  {
+    "topic": "Unit 15, Week 12",
+    "questions": [
+      {
+        "question": "What type of graph is created in this program?",
+        "options": [
+          "Weighted graph",
+          "Bipartite graph",
+          "Directed graph",
+          "Undirected graph"
+        ],
+        "answer": "Directed graph"
+      },
+      {
+        "question": "How many nodes are initially added to the graph?",
+        "options": [
+          "9",
+          "Random number",
+          "10",
+          "5"
+        ],
+        "answer": "10"
+      },
+      {
+        "question": "Which library is used to handle the graph?",
+        "options": [
+          "numpy",
+          "matplotlib",
+          "networkx",
+          "pandas"
+        ],
+        "answer": "networkx"
+      },
+      {
+        "question": "In `add_edges()`, what is the probability that an edge will be added between two distinct nodes?",
+        "options": [
+          "75%",
+          "0%",
+          "25%",
+          "50%"
+        ],
+        "answer": "50%"
+      },
+      {
+        "question": "Which condition in `add_edges()` ensures no self-loop is added?",
+        "options": [
+          "s != t",
+          "random.random()",
+          "s == t",
+          "s < t"
+        ],
+        "answer": "s != t"
+      },
+      {
+        "question": "Which function assigns the starting points to nodes?",
+        "options": [
+          "pagerank()",
+          "rank_by_points()",
+          "add_edges()",
+          "assign_points()"
+        ],
+        "answer": "assign_points()"
+      },
+      {
+        "question": "How many points does each node start with?",
+        "options": [
+          "50",
+          "10",
+          "500",
+          "100"
+        ],
+        "answer": "100"
+      },
+      {
+        "question": "If a node has no outgoing edges during distribution, what happens to its points?",
+        "options": [
+          "They remain with the same node",
+          "They are doubled",
+          "They are removed",
+          "They are given to random nodes"
+        ],
+        "answer": "They remain with the same node"
+      },
+      {
+        "question": "How are points distributed if a node has multiple outgoing edges?",
+        "options": [
+          "Given entirely to the first edge",
+          "Divided equally among outgoing edges",
+          "Distributed randomly",
+          "Not distributed"
+        ],
+        "answer": "Divided equally among outgoing edges"
+      },
+      {
+        "question": "Which function handles the repeated redistribution of points?",
+        "options": [
+          "rank_by_points()",
+          "keep_distributing()",
+          "pagerank()",
+          "add_edges()"
+        ],
+        "answer": "keep_distributing()"
+      }
+    ]
+  },
+  {
+    "topic": "Unit 9, Week 6",
+    "questions": [
+      {
+        "question": "What is the purpose of the `alphabets` list?",
+        "options": [
+          "To store the encrypted message.",
+          "To provide a reference for the position of each letter in the alphabet.",
+          "To define the key for the substitution cipher.",
+          "To count the frequency of each letter."
+        ],
+        "answer": "To provide a reference for the position of each letter in the alphabet."
+      },
+      {
+        "question": "What does the `key` variable represent in a substitution cipher?",
+        "options": [
+          "The message to be encrypted.",
+          "The number of positions to shift each letter.",
+          "The encrypted message.",
+          "The alphabet."
+        ],
+        "answer": "The number of positions to shift each letter."
+      },
+      {
+        "question": "How is the new position of a letter calculated during encryption?",
+        "options": [
+          "`new_pos = pos + key`",
+          "`new_pos = pos - key`",
+          "`new_pos = (pos + key) % 26`",
+          "`new_pos = pos * key`"
+        ],
+        "answer": "`new_pos = (pos + key) % 26`"
+      },
+      {
+        "question": "What is the purpose of the modulo operator (`%`) in the new position calculation?",
+        "options": [
+          "To handle spaces and punctuation.",
+          "To ensure the new position wraps around to the beginning of the alphabet if it exceeds 25.",
+          "To make the encryption more secure.",
+          "To convert the letter to its ASCII value."
+        ],
+        "answer": "To ensure the new position wraps around to the beginning of the alphabet if it exceeds 25."
+      },
+      {
+        "question": "If the letter is 'A' (position 0) and the key is 3, what will be the encrypted letter?",
+        "options": [
+          "'D'",
+          "'C'",
+          "'B'",
+          "'A'"
+        ],
+        "answer": "'D'"
+      },
+      {
+        "question": "How is decryption performed in this substitution cipher?",
+        "options": [
+          "By using a different key.",
+          "By shifting the letters forward instead of backward.",
+          "By subtracting the key from the position of the encrypted letter.",
+          "It is not possible to decrypt the message."
+        ],
+        "answer": "By subtracting the key from the position of the encrypted letter."
+      },
+      {
+        "question": "What is the formula for the original position during decryption?",
+        "options": [
+          "`original_pos = new_pos - key`",
+          "`original_pos = (new_pos - key) % 26`",
+          "`original_pos = new_pos + key`",
+          "`original_pos = (new_pos + key) % 26`"
+        ],
+        "answer": "`original_pos = (new_pos - key) % 26`"
+      },
+      {
+        "question": "If the encrypted letter is 'F' (position 5) and the key is 4, what was the original letter?",
+        "options": [
+          "'B'",
+          "'A'",
+          "'J'",
+          "'C'"
+        ],
+        "answer": "'B'"
+      },
+      {
+        "question": "What is a limitation of this simple substitution cipher?",
+        "options": [
+          "It can only encrypt uppercase letters.",
+          "It is very slow.",
+          "It is unbreakable.",
+          "It does not handle spaces or punctuation."
+        ],
+        "answer": "It does not handle spaces or punctuation."
+      },
+      {
+        "question": "What is the main concept behind a substitution cipher?",
+        "options": [
+          "Rearranging the order of the letters in the message.",
+          "Replacing each letter with another letter or symbol based on a system.",
+          "Hiding the message within an image.",
+          "Compressing the message to a smaller size."
+        ],
+        "answer": "Replacing each letter with another letter or symbol based on a system."
+      }
+    ]
+  },
+  {
+    "topic": "Unit 12, Week 9",
+    "questions": [
+      {
+        "question": "How many distinct anagrams can be formed using all the letters of the word \"LEVEL\"?",
+        "options": [
+          "60",
+          "120",
+          "30",
+          "20"
+        ],
+        "answer": "30"
+      },
+      {
+        "question": "Which of the following must be true for two strings to be anagrams?",
+        "options": [
+          "Both strings must be in the dictionary",
+          "Both strings must be the same length and have identical character counts",
+          "Both strings must have the same starting letter",
+          "Both strings must have the same number of vowels"
+        ],
+        "answer": "Both strings must be the same length and have identical character counts"
+      },
+      {
+        "question": "You are checking whether \"abcde\" and \"edcba \" (note the space at the end) are anagrams. Which of the following best describes why a naive checker would fail?",
+        "options": [
+          "Because they have different lengths",
+          "Because the space has ASCII value 32",
+          "Because sorted lists don't match",
+          "All of the above"
+        ],
+        "answer": "All of the above"
+      }
+    ]
+  },
+  {
+    "topic": "Unit 8, Week 5",
+    "questions": [
+      {
+        "question": "What is the purpose of the `movies` dictionary?",
+        "options": [
+          "To store a list of actors and their movie ratings.",
+          "To map movie titles to their corresponding genres.",
+          "To rank movies from best to worst.",
+          "To keep track of the number of times a movie has been watched."
+        ],
+        "answer": "To map movie titles to their corresponding genres."
+      },
+      {
+        "question": "How would you get the genre of the movie 'The Dark Knight'?",
+        "options": [
+          "`movies['The Dark Knight']`",
+          "`movies.get('The Dark Knight')`",
+          "`movies[1]`",
+          "Both a and b are correct."
+        ],
+        "answer": "Both a and b are correct."
+      },
+      {
+        "question": "What is the primary advantage of using a dictionary for this task?",
+        "options": [
+          "It is ordered, so movies are stored alphabetically.",
+          "It allows for efficient lookup of a movie's genre using its title as the key.",
+          "It can store duplicate movie titles.",
+          "It automatically sorts movies by genre."
+        ],
+        "answer": "It allows for efficient lookup of a movie's genre using its title as the key."
+      },
+      {
+        "question": "If you wanted to add a new movie, 'Inception', with the genre 'Sci-Fi', what code would you use?",
+        "options": [
+          "`movies.add('Inception', 'Sci-Fi')`",
+          "`movies['Inception'] = 'Sci-Fi'`",
+          "`movies.append({'Inception': 'Sci-Fi'})`",
+          "`movies.update({'Inception': 'Sci-Fi'})`"
+        ],
+        "answer": "`movies['Inception'] = 'Sci-Fi'`"
+      },
+      {
+        "question": "What does the `birthdays` dictionary represent?",
+        "options": [
+          "A mapping of names to their birth years.",
+          "A list of people and their ages.",
+          "A calendar of upcoming birthdays.",
+          "A mapping of names to their full birth dates (in 'Month Day' format)."
+        ],
+        "answer": "A mapping of names to their full birth dates (in 'Month Day' format)."
+      },
+      {
+        "question": "How would you access Albert Einstein's birthday from the `birthdays` dictionary?",
+        "options": [
+          "`birthdays['Albert Einstein']`",
+          "`birthdays[0]`",
+          "`birthdays.get('Einstein')`",
+          "`birthdays.value(0)`"
+        ],
+        "answer": "`birthdays['Albert Einstein']`"
+      },
+      {
+        "question": "What would be the output of `print(birthdays['Benjamin Franklin'])`?",
+        "options": [
+          "`January 17`",
+          "`Benjamin Franklin`",
+          "`March 14`",
+          "`KeyError`"
+        ],
+        "answer": "`January 17`"
+      },
+      {
+        "question": "Suppose you want to add your own birthday to the `birthdays` dictionary. If your name is 'My Name' and your birthday is 'January 1', what is the correct syntax?",
+        "options": [
+          "`birthdays.add('My Name', 'January 1')`",
+          "`birthdays['My Name'] = 'January 1'`",
+          "`birthdays.append('My Name', 'January 1')`",
+          "`birthdays.update('My Name', 'January 1')`"
+        ],
+        "answer": "`birthdays['My Name'] = 'January 1'`"
+      },
+      {
+        "question": "What is a key characteristic of dictionary keys, as demonstrated in both examples?",
+        "options": [
+          "They must be integers.",
+          "They can be duplicated.",
+          "They are case-insensitive.",
+          "They must be unique and are case-sensitive."
+        ],
+        "answer": "They must be unique and are case-sensitive."
+      },
+      {
+        "question": "If you try to access a key that does not exist in a dictionary (e.g., `movies['Toy Story']`), what will happen?",
+        "options": [
+          "It will return `None`.",
+          "It will return an empty string.",
+          "It will raise a `KeyError`.",
+          "It will add the key to the dictionary."
+        ],
+        "answer": "It will raise a `KeyError`."
+      }
+    ]
+  },
+  {
+    "topic": "Unit 5, Week 2",
+    "questions": [
+      {
+        "question": "What is the purpose of the random.choice() function in this code?",
+        "options": [
+          "To select a random word from the dictionary",
+          "To pick a random letter from the alphabet",
+          "To choose a random player to start the game",
+          "To shuffle the letters of the picked word"
+        ],
+        "answer": "To select a random word from the dictionary"
+      },
+      {
+        "question": "What does the variable `jumbled` store?",
+        "options": [
+          "The original picked word",
+          "The player's guess",
+          "The shuffled version of the picked word",
+          "The list of all possible words"
+        ],
+        "answer": "The shuffled version of the picked word"
+      },
+      {
+        "question": "How does the program determine if the player's guess is correct?",
+        "options": [
+          "By checking if the guess is in the list of words",
+          "By comparing the length of the guess with the picked word",
+          "By comparing the player's guess with the original `picked_word`",
+          "By checking if the guess is an anagram of the `jumbled` word"
+        ],
+        "answer": "By comparing the player's guess with the original `picked_word`"
+      },
+      {
+        "question": "What happens if the player types \"hint\"?",
+        "options": [
+          "The program displays the first letter of the picked word",
+          "The program ends",
+          "The player loses a point",
+          "The program reveals the entire picked word"
+        ],
+        "answer": "The program displays the first letter of the picked word"
+      },
+      {
+        "question": "How does the `thank()` function work?",
+        "options": [
+          "It prints a thank you message with the player's name and score",
+          "It asks for the player's name",
+          "It resets the score to zero",
+          "It saves the player's score to a file"
+        ],
+        "answer": "It prints a thank you message with the player's name and score"
+      },
+      {
+        "question": "What is the role of the `play()` function?",
+        "options": [
+          "It initializes the game and contains the main game loop",
+          "It picks a random word",
+          "It shuffles the letters of the word",
+          "It checks if the player's guess is correct"
+        ],
+        "answer": "It initializes the game and contains the main game loop"
+      },
+      {
+        "question": "What is the initial value of the player's score (`pp`)?",
+        "options": [
+          "1",
+          "100",
+          "0",
+          "-1"
+        ],
+        "answer": "0"
+      },
+      {
+        "question": "What happens when the player enters an incorrect guess?",
+        "options": [
+          "The score increases by 1",
+          "The score decreases by 1",
+          "The game ends",
+          "The player is given another chance with the same word"
+        ],
+        "answer": "The score decreases by 1"
+      },
+      {
+        "question": "How does the game end?",
+        "options": [
+          "After a fixed number of rounds",
+          "When the player types \"exit\"",
+          "When the player guesses all the words correctly",
+          "When the player's score reaches a certain value"
+        ],
+        "answer": "When the player types \"exit\""
+      },
+      {
+        "question": "What would happen if the line `random.shuffle(l)` was removed from the code?",
+        "options": [
+          "The `jumbled` word would be the same as the `picked_word`",
+          "The program would raise an error",
+          "The game would be easier",
+          "The hint would not work"
+        ],
+        "answer": "The `jumbled` word would be the same as the `picked_word`"
+      }
+    ]
+  },
+  {
+    "topic": "Unit 13, Week 10",
+    "questions": [
+      {
+        "question": "What does the mode \"r\" in the line `open(\"students.txt\", \"r\")` mean?",
+        "options": [
+          "Rewrite the file",
+          "Read the file",
+          "Remove the file",
+          "Run the file"
+        ],
+        "answer": "Read the file"
+      },
+      {
+        "question": "What will `file.readlines()` return?",
+        "options": [
+          "A string with the entire file content",
+          "A dictionary of words",
+          "A list of lines from the file",
+          "Only the first line of the file"
+        ],
+        "answer": "A list of lines from the file"
+      },
+      {
+        "question": "What is the purpose of `file.close()`?",
+        "options": [
+          "Deletes the file",
+          "Saves memory and finishes file operations",
+          "Prints the file",
+          "Converts the file to uppercase"
+        ],
+        "answer": "Saves memory and finishes file operations"
+      },
+      {
+        "question": "In the line `name = lines[i].strip()`, what does `.strip()` do?",
+        "options": [
+          "Removes only spaces",
+          "Adds a newline character",
+          "Removes newline and extra spaces from both ends",
+          "Converts the name to lowercase"
+        ],
+        "answer": "Removes newline and extra spaces from both ends"
+      },
+      {
+        "question": "What is the effect of opening a file in \"w\" mode?",
+        "options": [
+          "It appends content to the file",
+          "It reads content from the file",
+          "It overwrites the file if it already exists",
+          "It deletes the file"
+        ],
+        "answer": "It overwrites the file if it already exists"
+      },
+      {
+        "question": "What will be written in `registered.txt` if `students.txt` contains 3 names?",
+        "options": [
+          "Just the count of students",
+          "The names with numbering like 1. Name",
+          "Only the last student",
+          "Nothing, since the file is empty initially"
+        ],
+        "answer": "The names with numbering like 1. Name"
+      },
+      {
+        "question": "What is the role of '\\n' in the line: `new_file.write(f\"{i+1}. {name}\\n\")`?",
+        "options": [
+          "It creates an error",
+          "It writes a space",
+          "It moves to a new line after each entry",
+          "It removes the last line"
+        ],
+        "answer": "It moves to a new line after each entry"
+      },
+      {
+        "question": "Which line in the code ensures that the new file is actually created?",
+        "options": [
+          "`open(\"students.txt\", \"r\")`",
+          "`lines = file.readlines()`",
+          "`new_file = open(\"registered.txt\", \"w\")`",
+          "`print(count)`"
+        ],
+        "answer": "`new_file = open(\"registered.txt\", \"w\")`"
+      },
+      {
+        "question": "What will `len(lines)` return?",
+        "options": [
+          "The number of characters in the file",
+          "The number of lines (students) in the file",
+          "The size of the file in bytes",
+          "The first line of the file"
+        ],
+        "answer": "The number of lines (students) in the file"
+      },
+      {
+        "question": "Why do we use `f\"{i+1}. {name}\\n\"` instead of `i + name`?",
+        "options": [
+          "Because numbers and strings cannot be added directly",
+          "Because `i` is a float",
+          "Because we need to store binary values",
+          "Because `name` is an integer"
+        ],
+        "answer": "Because numbers and strings cannot be added directly"
+      }
+    ]
+  },
+  {
+    "topic": "Unit 11, Week 8",
+    "questions": [
+      {
+        "question": "Which Python library is used in the passage to automate browser tasks?",
+        "options": [
+          "BeautifulSoup",
+          "Requests",
+          "Selenium",
+          "Pandas"
+        ],
+        "answer": "Selenium"
+      },
+      {
+        "question": "Which command installs the Selenium library?",
+        "options": [
+          "install selenium",
+          "pip install selenium",
+          "python -m install selenium",
+          "pip get selenium"
+        ],
+        "answer": "pip install selenium"
+      },
+      {
+        "question": "What is the purpose of `webdriver.Chrome()` in the code?",
+        "options": [
+          "To open a Firefox browser",
+          "To install Chrome",
+          "To launch a Chrome browser instance",
+          "To search Google"
+        ],
+        "answer": "To launch a Chrome browser instance"
+      },
+      {
+        "question": "Which Selenium method opens a given URL in the browser?",
+        "options": [
+          "open()",
+          "driver.load()",
+          "driver.goto()",
+          "driver.get()"
+        ],
+        "answer": "driver.get()"
+      },
+      {
+        "question": "In the example, what is the id of the username input field?",
+        "options": [
+          "name",
+          "user",
+          "username",
+          "user_id"
+        ],
+        "answer": "username"
+      },
+      {
+        "question": "Which module provides the `By` class in Selenium?",
+        "options": [
+          "selenium.webdriver.common.by",
+          "selenium.by",
+          "webdriver.by",
+          "selenium.common.by"
+        ],
+        "answer": "selenium.webdriver.common.by"
+      },
+      {
+        "question": "What does `send_keys(Keys.ENTER)` simulate?",
+        "options": [
+          "Typing text",
+          "Pressing the Enter key",
+          "Clicking a button",
+          "Submitting by mouse"
+        ],
+        "answer": "Pressing the Enter key"
+      },
+      {
+        "question": "Why is `time.sleep(5)` used in the script?",
+        "options": [
+          "To delay closing the browser until the page loads",
+          "To speed up execution",
+          "To refresh the page",
+          "To avoid importing libraries"
+        ],
+        "answer": "To delay closing the browser until the page loads"
+      },
+      {
+        "question": "Which Selenium method closes the entire browser window?",
+        "options": [
+          "driver.close()",
+          "driver.quit()",
+          "browser.exit()",
+          "webdriver.stop()"
+        ],
+        "answer": "driver.quit()"
+      },
+      {
+        "question": "What is the main advantage of automating logins with Selenium?",
+        "options": [
+          "It saves manual effort",
+          "It prevents internet outages",
+          "It increases battery life",
+          "It blocks ads"
+        ],
+        "answer": "It saves manual effort"
+      }
+    ]
+  },
+  {
+    "topic": "Unit 4, Week 1",
+    "questions": [
+      {
+        "question": "What is the purpose of using .convert('L') when loading the image?",
+        "options": [
+          "To convert the image to RGB",
+          "To resize the image",
+          "To convert the image to grayscale",
+          "To apply a filter"
+        ],
+        "answer": "To convert the image to grayscale"
+      },
+      {
+        "question": "What type of quantization is implemented in the code?",
+        "options": [
+          "Non-uniform quantization",
+          "Logarithmic quantization",
+          "Uniform quantization",
+          "Variable-level quantization"
+        ],
+        "answer": "Uniform quantization"
+      },
+      {
+        "question": "How many quantization levels are created in the program?",
+        "options": [
+          "255",
+          "8",
+          "16",
+          "4"
+        ],
+        "answer": "8"
+      },
+      {
+        "question": "Which intensity range is mapped to the quantized value 3?",
+        "options": [
+          "0-31",
+          "64-95",
+          "96-127",
+          "160-191"
+        ],
+        "answer": "96-127"
+      },
+      {
+        "question": "What is the purpose of the pixelMap = im.load() line?",
+        "options": [
+          "It saves the image to disk",
+          "It loads pixel data into a NumPy array",
+          "It opens the image tile",
+          "It gives access to individual pixels of the image"
+        ],
+        "answer": "It gives access to individual pixels of the image"
+      },
+      {
+        "question": "Which line ensures that the output image remains in grayscale mode?",
+        "options": [
+          "img = Image.new(im.mode, im.size)",
+          "img = Image.new('L', im.size)",
+          "im = Image.open('images.jpg')",
+          "J = numpy.asarray(Image.open('lena_2.jpg'))"
+        ],
+        "answer": "img = Image.new('L', im.size)"
+      },
+      {
+        "question": "What is the role of the line img.save('lena_2.jpg')?",
+        "options": [
+          "It loads a new image",
+          "It displays the image",
+          "It writes the quantized image to a file",
+          "It converts the image to a NumPy array"
+        ],
+        "answer": "It writes the quantized image to a file"
+      },
+      {
+        "question": "Which of the following quantized values corresponds to the intensity range 192-223?",
+        "options": [
+          "5",
+          "6",
+          "4",
+          "2"
+        ],
+        "answer": "6"
+      },
+      {
+        "question": "Why is there no separate variable like intensity used in the loop?",
+        "options": [
+          "Because pixelMap[i, j] directly gives the quantized value",
+          "To save memory by avoiding additional variables",
+          "To increase the range of pixel values",
+          "To ensure the image remains in color mode"
+        ],
+        "answer": "To save memory by avoiding additional variables"
+      },
+      {
+        "question": "What would happen if the input image was not converted to grayscale before quantization?",
+        "options": [
+          "The program would raise an error",
+          "The pixelMap[i, j] would return a tuple instead of a single value",
+          "The quantization would still work correctly",
+          "The image would be blurred"
+        ],
+        "answer": "The pixelMap[i, j] would return a tuple instead of a single value"
+      }
+    ]
+  },
+  {
+    "topic": "Unit 7, Week 4",
+    "questions": [
+      {
+        "question": "What is the output type of the function jumble_word(\"Moana\")?",
+        "options": [
+          "List",
+          "Tuple",
+          "Dictionary",
+          "String"
+        ],
+        "answer": "String"
+      },
+      {
+        "question": "Why do we use list(word) before shuffling in jumble_word?",
+        "options": [
+          "Strings are immutable, so we convert to list",
+          "Strings can be shuffled directly",
+          "It converts all characters to uppercase",
+          "It reverses the word"
+        ],
+        "answer": "Strings are immutable, so we convert to list"
+      },
+      {
+        "question": "Consider the line: if guess.lower() == original.lower(): What will happen if we remove .lower() from both sides?",
+        "options": [
+          "It will make the comparison more accurate",
+          "The game will stop working entirely",
+          "It may incorrectly mark right answers as wrong if case differs",
+          "The original variable will change"
+        ],
+        "answer": "It may incorrectly mark right answers as wrong if case differs"
+      },
+      {
+        "question": "Which function is used to randomize the order of items in a list in the given code?",
+        "options": [
+          "random.choice()",
+          "random.shuffle()",
+          "random.sort()",
+          "random.sample()"
+        ],
+        "answer": "random.shuffle()"
+      },
+      {
+        "question": "What issue can occur with this line: jumbled = jumble_word(original)?",
+        "options": [
+          "It may return the original word in the same order",
+          "It will always return the original word",
+          "It causes a syntax error",
+          "It deletes a letter from the word"
+        ],
+        "answer": "It may return the original word in the same order"
+      },
+      {
+        "question": "Which modification ensures that the jumbled word is not the same as the original?",
+        "options": [
+          "Add lower() after shuffle()",
+          "Convert it to uppercase",
+          "Use reverse() instead of shuffle()",
+          "Add a loop to reshuffle until different"
+        ],
+        "answer": "Add a loop to reshuffle until different"
+      },
+      {
+        "question": "Suppose the word is \"Yoda\". Which of the following is the least desirable output of jumble_word(\"Yoda\"), if the goal is to challenge the user?",
+        "options": [
+          "\"odYa\"",
+          "\"Yoda\"",
+          "\"dayo\"",
+          "\"odaY\""
+        ],
+        "answer": "\"Yoda\""
+      },
+      {
+        "question": "What is the purpose of random.choice(characters)?",
+        "options": [
+          "To select a character randomly from the list",
+          "To jumble all characters",
+          "To sort the characters alphabetically",
+          "To pick all characters one by one"
+        ],
+        "answer": "To select a character randomly from the list"
+      },
+      {
+        "question": "What will happen if the characters list is empty?",
+        "options": [
+          "The program will crash with IndexError",
+          "The program will continue running without error",
+          "The program will print a blank string",
+          "The program will crash with ValueError"
+        ],
+        "answer": "The program will crash with IndexError"
+      },
+      {
+        "question": "Which of the following is the best way to score the user if you want to turn this into a 5-round game?",
+        "options": [
+          "Add 5 to score after every round",
+          "Create a list of 5 questions and loop with a score variable",
+          "Print the score inside the jumble_word function",
+          "Use break instead of score"
+        ],
+        "answer": "Create a list of 5 questions and loop with a score variable"
+      }
+    ]
+  }
+]

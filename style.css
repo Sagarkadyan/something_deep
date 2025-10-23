@@ -1,0 +1,135 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  padding-top: 20px; /* Add padding for the nav bar */
+}
+
+.navigation {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.navigation button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.navigation button:hover {
+  background-color: #555;
+}
+
+.quiz-container, #coding-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px; /* Increase max-width for coding */
+}
+
+#question-container {
+  margin-bottom: 1rem;
+}
+
+#options-container button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+#options-container button:hover {
+  background-color: #e0e0e0;
+}
+
+#options-container button.correct {
+  background-color: #a8e6cf;
+}
+
+#options-container button.incorrect {
+  background-color: #ff8a80;
+}
+
+#next-btn, #start-quiz-btn, #restart-btn, #submit-code-btn, #next-coding-btn, #get-solution-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#next-btn:hover, #start-quiz-btn:hover, #restart-btn:hover, #submit-code-btn:hover, #next-coding-btn:hover, #get-solution-btn:hover {
+  background-color: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Styles for Coding Area */
+#coding-question {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  white-space: pre-wrap; /* Ensures long lines wrap */
+  word-wrap: break-word;
+  font-family: monospace;
+  margin-bottom: 1rem;
+}
+
+#code-answer {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+#feedback-container {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+#feedback-container.correct {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+#feedback-container.incorrect {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+#solution-container {
+  margin-top: 10px;
+  background-color: #e9ecef;
+  padding: 15px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: monospace;
+}

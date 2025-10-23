@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz and Code</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navigation">
+    <button id="show-quiz-btn">Quiz</button>
+    <button id="show-coding-btn">Coding Practice</button>
+  </nav>
+
+  <div class="quiz-container">
+    <div id="error-container" class="hidden">
+      <p id="error-message"></p>
+    </div>
+    <div id="quiz-area" class="hidden">
+      <div id="question-container">
+        <h2 id="question"></h2>
+        <div id="options-container"></div>
+        <button id="explain-btn" class="hidden" style="margin-top: 10px;">Explain Answer</button>
+        <div id="explanation-container" class="hidden" style="margin-top: 10px;">
+          <h3>Explanation:</h3>
+          <p id="explanation-text"></p>
+        </div>
+      </div>
+      <button id="next-btn">Next</button>
+    </div>
+    <div id="result-container" class="hidden">
+      <h2>Quiz Finished!</h2>
+      <p>Your score: <span id="score"></span></p>
+      <p>High score: <span id="highscore"></span></p>
+      <button id="restart-btn">Restart Quiz</button>
+    </div>
+  </div>
+
+  <div id="coding-container" class="hidden">
+    <div id="coding-question-container">
+      <h2>Coding Challenge</h2>
+      <pre id="coding-question"></pre>
+    </div>
+    <div id="coding-answer-container">
+      <h3>Your Code:</h3>
+      <textarea id="code-answer" rows="15" placeholder="Write your Python code here..."></textarea>
+    </div>
+    <button id="submit-code-btn">Submit Code</button>
+    <div id="feedback-container" class="hidden">
+      <h3 id="feedback-title"></h3>
+      <p id="feedback-text"></p>
+      <button id="get-solution-btn" class="hidden">Show Solution</button>
+      <pre id="solution-container" class="hidden"></pre>
+    </div>
+    <button id="next-coding-btn">Next Question</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
