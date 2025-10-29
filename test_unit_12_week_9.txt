@@ -1,0 +1,97 @@
+
+Test for Unit 12, Week 9
+
+1) What will be the output of the following code?
+def are_anagrams(w1, w2):
+    return sorted(w1) == sorted(w2)
+
+print(are_anagrams("Listen", "Silent"))
+a) True
+b) False
+c) Error: cannot compare lists
+d) It depends on the length of the words
+Answer: False
+
+2) What will be the output of the following code?
+def are_anagrams(w1, w2):
+    w1 = w1.replace(" ", "").lower()
+    w2 = w2.replace(" ", "").lower()
+    return sorted(w1) == sorted(w2)
+
+print(are_anagrams("Dormitory", "Dirty room"))
+a) True
+b) False
+c) False because the strings are of different original lengths
+d) Depends on whether the input has punctuation
+Answer: True
+
+3) How many distinct anagrams can be formed using all the letters of the word "LEVEL"?
+a) 60
+b) 120
+c) 30
+d) 20
+Answer: 30
+
+4) What will be the output of the following code?
+words = ["listen", "silent", "enlist", "google", "gogole"]
+anagrams = []
+for i in range(len(words)):
+    for j in range(i + 1, len(words)):
+        if sorted(words[i]) == sorted(words[j]):
+            anagrams.append((words[i], words[j]))
+print(anagrams)
+a) [('listen', 'silent'), ('listen', 'enlist'), ('silent', 'enlist'), ('google', 'gogole')]
+b) [('listen', 'silent'), ('silent', 'enlist'), ('google', 'gogole')]
+c) [('listen', 'silent'), ('listen', 'enlist'), ('google', 'gogole')]
+d) [('listen', 'silent'), ('listen', 'enlist'), ('silent', 'enlist')]
+Answer: [('listen', 'silent'), ('listen', 'enlist'), ('silent', 'enlist'), ('google', 'gogole')]
+
+5) The following function is intended to check if two words are anagrams. However, it fails for some valid inputs. Identify the bug.
+def is_anagram(w1, w2):
+    return sorted(w1) == sorted(w2)
+
+What is the issue with this code?
+a) It doesn't handle uppercase and lowercase letters correctly
+b) sorted() can't be used on strings
+c) The return statement compares the memory addresses
+d) It requires the words to be of equal length
+Answer: It doesn't handle uppercase and lowercase letters correctly
+
+6) Which of the following must be true for two strings to be anagrams?
+a) Both strings must be in the dictionary
+b) Both strings must be the same length and have identical character counts
+c) Both strings must have the same starting letter
+d) Both strings must have the same number of vowels
+Answer: Both strings must be the same length and have identical character counts
+
+7) You are checking whether "abcde" and "edcba " (note the space at the end) are anagrams. Which of the following best describes why a naive checker would fail?
+a) Because they have different lengths
+b) Because the space has ASCII value 32
+c) Because sorted lists don't match
+d) All of the above
+Answer: All of the above
+
+8) What will be the output of the following code?
+def anagram_checker(word):
+    return word == word[::-1]
+
+print(anagram_checker("madam"))
+a) True
+b) False
+c) Error: invalid slicing syntax
+d) True, because "madam" is an anagram of "madam"
+Answer: True
+
+9) What will be the output of the following code?
+def ascii_sum(word):
+    total = 0
+    for char in word:
+        total += ord(char)
+    return total
+
+print(ascii_sum("abc") == ascii_sum("acb"))
+a) True
+b) False
+c) Error: ord() cannot be used in loop
+d) False, because the order of characters matters in ord()
+Answer: True

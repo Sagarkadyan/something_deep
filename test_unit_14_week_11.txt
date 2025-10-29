@@ -1,0 +1,72 @@
+
+Test for Unit 14, Week 11
+
+1) What is the purpose of the `requests` library in Python?
+a) To create graphical user interfaces.
+b) To perform data analysis.
+c) To send HTTP requests and handle responses.
+d) To work with operating system functionalities.
+Answer: To send HTTP requests and handle responses.
+
+2) Which function from the `requests` library is used to send a GET request?
+a) `requests.post()`
+b) `requests.get()`
+c) `requests.fetch()`
+d) `requests.request()`
+Answer: `requests.get()`
+
+3) What does the `response.status_code` attribute represent?
+a) The content of the response.
+b) The headers of the response.
+c) The HTTP status code of the response (e.g., 200 for OK, 404 for Not Found).
+d) The time it took to receive the response.
+Answer: The HTTP status code of the response (e.g., 200 for OK, 404 for Not Found).
+
+4) How do you access the content of the response as text?
+a) `response.text`
+b) `response.content`
+c) `response.json()`
+d) `response.data`
+Answer: `response.text`
+
+5) What is the purpose of the `BeautifulSoup` library?
+a) To send HTTP requests.
+b) To parse HTML and XML documents.
+c) To create and manage databases.
+d) To build web servers.
+Answer: To parse HTML and XML documents.
+
+6) In the line `soup = BeautifulSoup(response.text, 'html.parser')`, what is the second argument (`'html.parser'`)?
+a) The URL of the website.
+b) The HTML content to be parsed.
+c) The name of the parser to be used.
+d) The headers for the HTTP request.
+Answer: The name of the parser to be used.
+
+7) How would you find all the `<h1>` tags in a BeautifulSoup object named `soup`?
+a) `soup.find('h1')`
+b) `soup.findall('h1')`
+c) `soup.select('h1')`
+d) `soup.get('h1')`
+Answer: `soup.findall('h1')`
+
+8) What does the `.text` attribute of a BeautifulSoup tag object return?
+a) The tag name.
+b) The attributes of the tag.
+c) The inner text of the tag, with all HTML tags removed.
+d) The full HTML of the tag.
+Answer: The inner text of the tag, with all HTML tags removed.
+
+9) If you want to extract all the links (URLs) from a webpage, which tag should you typically look for?
+a) `<img>`
+b) `<a>`
+c) `<p>`
+d) `<div>`
+Answer: `<a>`
+
+10) What is web scraping?
+a) The process of creating a website from scratch.
+b) The automated process of extracting data from websites.
+c) A method for designing the visual layout of a webpage.
+d) The act of manually copying and pasting information from the internet.
+Answer: The automated process of extracting data from websites.

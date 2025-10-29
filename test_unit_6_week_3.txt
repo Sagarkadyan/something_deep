@@ -1,0 +1,72 @@
+
+Test for Unit 6, Week 3
+
+1) What does the `marks` dictionary store?
+a) A list of students and their total marks
+b) A list of subjects and the average marks in each subject
+c) Each student's name as a key and a list of their marks in three subjects as the value
+d) The rank of each student
+Answer: Each student's name as a key and a list of their marks in three subjects as the value
+
+2) How would you access Zoya's marks in Science?
+a) `marks['Zoya'][1]`
+b) `marks['Zoya'][2]`
+c) `marks[1]['Zoya']`
+d) `marks['Zoya']['Science']`
+Answer: `marks['Zoya'][1]`
+
+3) What is the purpose of the `student_details` list of dictionaries?
+a) To store the total marks of each student
+b) To provide a more structured way to store each student's name, age, and house
+c) To list the subjects for the exam
+d) To rank the students based on their age
+Answer: To provide a more structured way to store each student's name, age, and house
+
+4) How would you find the age of the second student in the `student_details` list?
+a) `student_details[1]['age']`
+b) `student_details['age'][1]`
+c) `student_details[1].age`
+d) `student_details.get(1).get('age')`
+Answer: `student_details[1]['age']`
+
+5) If you wanted to add a new student, Priya, with marks [88, 91, 85], to the `marks` dictionary, what code would you use?
+a) `marks.add('Priya', [88, 91, 85])`
+b) `marks['Priya'] = [88, 91, 85]`
+c) `marks.append({'Priya': [88, 91, 85]})`
+d) `marks.update({'Priya': [88, 91, 85]})`
+Answer: `marks['Priya'] = [88, 91, 85]`
+
+6) What is the main advantage of using a list of dictionaries (`student_details`) over a dictionary of lists (`marks`) for storing student data?
+a) It is easier to add new students
+b) It uses less memory
+c) It can store more types of data (e.g., name, age, house) in a structured way
+d) It is faster to search for a student by name
+Answer: It can store more types of data (e.g., name, age, house) in a structured way
+
+7) How would you print the house of the student named 'Ravi' from the `student_details` list?
+a) `student_details[1]['house']`
+b) By iterating through the list and checking the 'name' key for 'Ravi'
+c) `student_details['Ravi']['house']`
+d) `student_details.get_house('Ravi')`
+Answer: By iterating through the list and checking the 'name' key for 'Ravi'
+
+8) Which data structure is more suitable if you want to quickly find a student's marks by their name?
+a) The `marks` dictionary
+b) The `student_details` list
+c) Both are equally suitable
+d) Neither is suitable
+Answer: The `marks` dictionary
+
+9) If you wanted to calculate the average marks for Aanya, what would be the correct code?
+a) `sum(marks['Aanya']) / 3`
+b) `avg(marks['Aanya'])`
+c) `marks['Aanya'].mean()`
+d) `(85 + 90 + 88) / 3`
+Answer: `sum(marks['Aanya']) / 3`
+
+10) What is a key difference between a dictionary and a list in Python?
+a) A dictionary is ordered, while a list is unordered
+b) A list can store different data types, while a dictionary cannot
+c) A dictionary uses key-value pairs, while a list uses integer indices
+d) A list is mutable, while a dictionary is immutable
+Answer: A dictionary uses key-value pairs, while a list uses integer indices

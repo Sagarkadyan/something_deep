@@ -1,0 +1,72 @@
+
+Test for Unit 9, Week 6
+
+1) What is the purpose of the `alphabets` list?
+a) To store the encrypted message.
+b) To provide a reference for the position of each letter in the alphabet.
+c) To define the key for the substitution cipher.
+d) To count the frequency of each letter.
+Answer: To provide a reference for the position of each letter in the alphabet.
+
+2) What does the `key` variable represent in a substitution cipher?
+a) The message to be encrypted.
+b) The number of positions to shift each letter.
+c) The encrypted message.
+d) The alphabet.
+Answer: The number of positions to shift each letter.
+
+3) How is the new position of a letter calculated during encryption?
+a) `new_pos = pos + key`
+b) `new_pos = pos - key`
+c) `new_pos = (pos + key) % 26`
+d) `new_pos = pos * key`
+Answer: `new_pos = (pos + key) % 26`
+
+4) What is the purpose of the modulo operator (`%`) in the new position calculation?
+a) To handle spaces and punctuation.
+b) To ensure the new position wraps around to the beginning of the alphabet if it exceeds 25.
+c) To make the encryption more secure.
+d) To convert the letter to its ASCII value.
+Answer: To ensure the new position wraps around to the beginning of the alphabet if it exceeds 25.
+
+5) If the letter is 'A' (position 0) and the key is 3, what will be the encrypted letter?
+a) 'D'
+b) 'C'
+c) 'B'
+d) 'A'
+Answer: 'D'
+
+6) How is decryption performed in this substitution cipher?
+a) By using a different key.
+b) By shifting the letters forward instead of backward.
+c) By subtracting the key from the position of the encrypted letter.
+d) It is not possible to decrypt the message.
+Answer: By subtracting the key from the position of the encrypted letter.
+
+7) What is the formula for the original position during decryption?
+a) `original_pos = new_pos - key`
+b) `original_pos = (new_pos - key) % 26`
+c) `original_pos = new_pos + key`
+d) `original_pos = (new_pos + key) % 26`
+Answer: `original_pos = (new_pos - key) % 26`
+
+8) If the encrypted letter is 'F' (position 5) and the key is 4, what was the original letter?
+a) 'B'
+b) 'A'
+c) 'J'
+d) 'C'
+Answer: 'B'
+
+9) What is a limitation of this simple substitution cipher?
+a) It can only encrypt uppercase letters.
+b) It is very slow.
+c) It is unbreakable.
+d) It does not handle spaces or punctuation.
+Answer: It does not handle spaces or punctuation.
+
+10) What is the main concept behind a substitution cipher?
+a) Rearranging the order of the letters in the message.
+b) Replacing each letter with another letter or symbol based on a system.
+c) Hiding the message within an image.
+d) Compressing the message to a smaller size.
+Answer: Replacing each letter with another letter or symbol based on a system.

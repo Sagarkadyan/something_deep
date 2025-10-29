@@ -1,0 +1,72 @@
+
+Test for Unit 5, Week 2
+
+1) What is the purpose of the random.choice() function in this code?
+a) To select a random word from the dictionary
+b) To pick a random letter from the alphabet
+c) To choose a random player to start the game
+d) To shuffle the letters of the picked word
+Answer: To select a random word from the dictionary
+
+2) What does the variable `jumbled` store?
+a) The original picked word
+b) The player's guess
+c) The shuffled version of the picked word
+d) The list of all possible words
+Answer: The shuffled version of the picked word
+
+3) How does the program determine if the player's guess is correct?
+a) By checking if the guess is in the list of words
+b) By comparing the length of the guess with the picked word
+c) By comparing the player's guess with the original `picked_word`
+d) By checking if the guess is an anagram of the `jumbled` word
+Answer: By comparing the player's guess with the original `picked_word`
+
+4) What happens if the player types "hint"?
+a) The program displays the first letter of the picked word
+b) The program ends
+c) The player loses a point
+d) The program reveals the entire picked word
+Answer: The program displays the first letter of the picked word
+
+5) How does the `thank()` function work?
+a) It prints a thank you message with the player's name and score
+b) It asks for the player's name
+c) It resets the score to zero
+d) It saves the player's score to a file
+Answer: It prints a thank you message with the player's name and score
+
+6) What is the role of the `play()` function?
+a) It initializes the game and contains the main game loop
+b) It picks a random word
+c) It shuffles the letters of the word
+d) It checks if the player's guess is correct
+Answer: It initializes the game and contains the main game loop
+
+7) What is the initial value of the player's score (`pp`)?
+a) 1
+b) 100
+c) 0
+d) -1
+Answer: 0
+
+8) What happens when the player enters an incorrect guess?
+a) The score increases by 1
+b) The score decreases by 1
+c) The game ends
+d) The player is given another chance with the same word
+Answer: The score decreases by 1
+
+9) How does the game end?
+a) After a fixed number of rounds
+b) When the player types "exit"
+c) When the player guesses all the words correctly
+d) When the player's score reaches a certain value
+Answer: When the player types "exit"
+
+10) What would happen if the line `random.shuffle(l)` was removed from the code?
+a) The `jumbled` word would be the same as the `picked_word`
+b) The program would raise an error
+c) The game would be easier
+d) The hint would not work
+Answer: The `jumbled` word would be the same as the `picked_word`

@@ -1,0 +1,72 @@
+
+Test for Unit 8, Week 5
+
+1) What is the purpose of the `movies` dictionary?
+a) To store a list of actors and their movie ratings.
+b) To map movie titles to their corresponding genres.
+c) To rank movies from best to worst.
+d) To keep track of the number of times a movie has been watched.
+Answer: To map movie titles to their corresponding genres.
+
+2) How would you get the genre of the movie 'The Dark Knight'?
+a) `movies['The Dark Knight']`
+b) `movies.get('The Dark Knight')`
+c) `movies[1]`
+d) Both a and b are correct.
+Answer: Both a and b are correct.
+
+3) What is the primary advantage of using a dictionary for this task?
+a) It is ordered, so movies are stored alphabetically.
+b) It allows for efficient lookup of a movie's genre using its title as the key.
+c) It can store duplicate movie titles.
+d) It automatically sorts movies by genre.
+Answer: It allows for efficient lookup of a movie's genre using its title as the key.
+
+4) If you wanted to add a new movie, 'Inception', with the genre 'Sci-Fi', what code would you use?
+a) `movies.add('Inception', 'Sci-Fi')`
+b) `movies['Inception'] = 'Sci-Fi'`
+c) `movies.append({'Inception': 'Sci-Fi'})`
+d) `movies.update({'Inception': 'Sci-Fi'})`
+Answer: `movies['Inception'] = 'Sci-Fi'`
+
+5) What does the `birthdays` dictionary represent?
+a) A mapping of names to their birth years.
+b) A list of people and their ages.
+c) A calendar of upcoming birthdays.
+d) A mapping of names to their full birth dates (in 'Month Day' format).
+Answer: A mapping of names to their full birth dates (in 'Month Day' format).
+
+6) How would you access Albert Einstein's birthday from the `birthdays` dictionary?
+a) `birthdays['Albert Einstein']`
+b) `birthdays[0]`
+c) `birthdays.get('Einstein')`
+d) `birthdays.value(0)`
+Answer: `birthdays['Albert Einstein']`
+
+7) What would be the output of `print(birthdays['Benjamin Franklin'])`?
+a) `January 17`
+b) `Benjamin Franklin`
+c) `March 14`
+d) `KeyError`
+Answer: `January 17`
+
+8) Suppose you want to add your own birthday to the `birthdays` dictionary. If your name is 'My Name' and your birthday is 'January 1', what is the correct syntax?
+a) `birthdays.add('My Name', 'January 1')`
+b) `birthdays['My Name'] = 'January 1'`
+c) `birthdays.append('My Name', 'January 1')`
+d) `birthdays.update('My Name', 'January 1')`
+Answer: `birthdays['My Name'] = 'January 1'`
+
+9) What is a key characteristic of dictionary keys, as demonstrated in both examples?
+a) They must be integers.
+b) They can be duplicated.
+c) They are case-insensitive.
+d) They must be unique and are case-sensitive.
+Answer: They must be unique and are case-sensitive.
+
+10) If you try to access a key that does not exist in a dictionary (e.g., `movies['Toy Story']`), what will happen?
+a) It will return `None`.
+b) It will return an empty string.
+c) It will raise a `KeyError`.
+d) It will add the key to the dictionary.
+Answer: It will raise a `KeyError`.

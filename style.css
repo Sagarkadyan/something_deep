@@ -1,12 +1,14 @@
+/* Dark Theme CSS */
 body {
   font-family: sans-serif;
   display: flex;
-  flex-direction: column; /* Align items vertically */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
-  padding-top: 20px; /* Add padding for the nav bar */
+  background-color: #1a1a1a; /* Dark grey background */
+  color: #f0f0f0; /* Light grey text */
+  padding-top: 20px;
 }
 
 .navigation {
@@ -22,6 +24,7 @@ body {
   background-color: #333;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .navigation button:hover {
@@ -29,12 +32,12 @@ body {
 }
 
 .quiz-container, #coding-container {
-  background-color: white;
+  background-color: #2c2c2c; /* Slightly lighter grey for container */
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   width: 90%;
-  max-width: 800px; /* Increase max-width for coding */
+  max-width: 800px;
 }
 
 #question-container {
@@ -46,25 +49,30 @@ body {
   width: 100%;
   padding: 1rem;
   margin-bottom: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid #555;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: #3a3a3a;
+  color: #f0f0f0;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 #options-container button:hover {
-  background-color: #e0e0e0;
+  background-color: #4a4a4a;
 }
 
 #options-container button.correct {
-  background-color: #a8e6cf;
+  background-color: #28a745; /* Green for correct */
+  color: white;
 }
 
 #options-container button.incorrect {
-  background-color: #ff8a80;
+  background-color: #dc3545; /* Red for incorrect */
+  color: white;
 }
 
-#next-btn, #start-quiz-btn, #restart-btn, #submit-code-btn, #next-coding-btn, #get-solution-btn {
+/* Make prev button look like next button */
+#next-btn, #start-quiz-btn, #restart-btn, #submit-code-btn, #next-coding-btn, #get-solution-btn, #prev-coding-btn, #reveal-answer-btn {
   width: 100%;
   padding: 1rem;
   border: none;
@@ -73,9 +81,10 @@ body {
   color: white;
   cursor: pointer;
   margin-top: 10px;
+  transition: background-color 0.3s;
 }
 
-#next-btn:hover, #start-quiz-btn:hover, #restart-btn:hover, #submit-code-btn:hover, #next-coding-btn:hover, #get-solution-btn:hover {
+#next-btn:hover, #start-quiz-btn:hover, #restart-btn:hover, #submit-code-btn:hover, #next-coding-btn:hover, #get-solution-btn:hover, #prev-coding-btn:hover, #reveal-answer-btn:hover {
   background-color: #0056b3;
 }
 
@@ -83,26 +92,28 @@ body {
   display: none;
 }
 
-/* Styles for Coding Area */
 #coding-question {
-  background-color: #f4f4f4;
+  background-color: #1e1e1e;
   padding: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #444;
   border-radius: 5px;
-  white-space: pre-wrap; /* Ensures long lines wrap */
+  white-space: pre-wrap;
   word-wrap: break-word;
   font-family: monospace;
   margin-bottom: 1rem;
+  color: #f0f0f0;
 }
 
 #code-answer {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #444;
   border-radius: 5px;
   font-family: monospace;
   font-size: 14px;
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  box-sizing: border-box;
+  background-color: #1e1e1e;
+  color: #f0f0f0;
 }
 
 #feedback-container {
@@ -113,23 +124,31 @@ body {
 }
 
 #feedback-container.correct {
-  background-color: #d4edda;
-  border-color: #c3e6cb;
-  color: #155724;
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
 }
 
 #feedback-container.incorrect {
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
-  color: #721c24;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
 }
 
 #solution-container {
   margin-top: 10px;
-  background-color: #e9ecef;
+  background-color: #1e1e1e;
   padding: 15px;
   border-radius: 5px;
   white-space: pre-wrap;
   word-wrap: break-word;
   font-family: monospace;
+  border: 1px solid #444;
+  color: #f0f0f0;
+}
+
+.coding-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

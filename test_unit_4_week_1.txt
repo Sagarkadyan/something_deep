@@ -1,0 +1,72 @@
+
+Test for Unit 4, Week 1
+
+1) What is the purpose of using .convert('L') when loading the image?
+a) To convert the image to RGB
+b) To resize the image
+c) To convert the image to grayscale
+d) To apply a filter
+Answer: To convert the image to grayscale
+
+2) What type of quantization is implemented in the code?
+a) Non-uniform quantization
+b) Logarithmic quantization
+c) Uniform quantization
+d) Variable-level quantization
+Answer: Uniform quantization
+
+3) How many quantization levels are created in the program?
+a) 255
+b) 8
+c) 16
+d) 4
+Answer: 8
+
+4) Which intensity range is mapped to the quantized value 3?
+a) 0-31
+b) 64-95
+c) 96-127
+d) 160-191
+Answer: 96-127
+
+5) What is the purpose of the pixelMap = im.load() line?
+a) It saves the image to disk
+b) It loads pixel data into a NumPy array
+c) It opens the image tile
+d) It gives access to individual pixels of the image
+Answer: It gives access to individual pixels of the image
+
+6) Which line ensures that the output image remains in grayscale mode?
+a) img = Image.new(im.mode, im.size)
+b) img = Image.new('L', im.size)
+c) im = Image.open('images.jpg')
+d) J = numpy.asarray(Image.open('lena_2.jpg'))
+Answer: img = Image.new('L', im.size)
+
+7) What is the role of the line img.save('lena_2.jpg')?
+a) It loads a new image
+b) It displays the image
+c) It writes the quantized image to a file
+d) It converts the image to a NumPy array
+Answer: It writes the quantized image to a file
+
+8) Which of the following quantized values corresponds to the intensity range 192-223?
+a) 5
+b) 6
+c) 4
+d) 2
+Answer: 6
+
+9) Why is there no separate variable like intensity used in the loop?
+a) Because pixelMap[i, j] directly gives the quantized value
+b) To save memory by avoiding additional variables
+c) To increase the range of pixel values
+d) To ensure the image remains in color mode
+Answer: To save memory by avoiding additional variables
+
+10) What would happen if the input image was not converted to grayscale before quantization?
+a) The program would raise an error
+b) The pixelMap[i, j] would return a tuple instead of a single value
+c) The quantization would still work correctly
+d) The image would be blurred
+Answer: The pixelMap[i, j] would return a tuple instead of a single value

@@ -1,0 +1,72 @@
+
+Test for Unit 11, Week 8
+
+1) Which Python library is used in the passage to automate browser tasks?
+a) BeautifulSoup
+b) Requests
+c) Selenium
+d) Pandas
+Answer: Selenium
+
+2) Which command installs the Selenium library?
+a) install selenium
+b) pip install selenium
+c) python -m install selenium
+d) pip get selenium
+Answer: pip install selenium
+
+3) What is the purpose of `webdriver.Chrome()` in the code?
+a) To open a Firefox browser
+b) To install Chrome
+c) To launch a Chrome browser instance
+d) To search Google
+Answer: To launch a Chrome browser instance
+
+4) Which Selenium method opens a given URL in the browser?
+a) open()
+b) driver.load()
+c) driver.goto()
+d) driver.get()
+Answer: driver.get()
+
+5) In the example, what is the id of the username input field?
+a) name
+b) user
+c) username
+d) user_id
+Answer: username
+
+6) Which module provides the `By` class in Selenium?
+a) selenium.webdriver.common.by
+b) selenium.by
+c) webdriver.by
+d) selenium.common.by
+Answer: selenium.webdriver.common.by
+
+7) What does `send_keys(Keys.ENTER)` simulate?
+a) Typing text
+b) Pressing the Enter key
+c) Clicking a button
+d) Submitting by mouse
+Answer: Pressing the Enter key
+
+8) Why is `time.sleep(5)` used in the script?
+a) To delay closing the browser until the page loads
+b) To speed up execution
+c) To refresh the page
+d) To avoid importing libraries
+Answer: To delay closing the browser until the page loads
+
+9) Which Selenium method closes the entire browser window?
+a) driver.close()
+b) driver.quit()
+c) browser.exit()
+d) webdriver.stop()
+Answer: driver.quit()
+
+10) What is the main advantage of automating logins with Selenium?
+a) It saves manual effort
+b) It prevents internet outages
+c) It increases battery life
+d) It blocks ads
+Answer: It saves manual effort

@@ -1,0 +1,72 @@
+
+Test for Unit 13, Week 10
+
+1) What does the mode "r" in the line `open("students.txt", "r")` mean?
+a) Rewrite the file
+b) Read the file
+c) Remove the file
+d) Run the file
+Answer: Read the file
+
+2) What will `file.readlines()` return?
+a) A string with the entire file content
+b) A dictionary of words
+c) A list of lines from the file
+d) Only the first line of the file
+Answer: A list of lines from the file
+
+3) What is the purpose of `file.close()`?
+a) Deletes the file
+b) Saves memory and finishes file operations
+c) Prints the file
+d) Converts the file to uppercase
+Answer: Saves memory and finishes file operations
+
+4) In the line `name = lines[i].strip()`, what does `.strip()` do?
+a) Removes only spaces
+b) Adds a newline character
+c) Removes newline and extra spaces from both ends
+d) Converts the name to lowercase
+Answer: Removes newline and extra spaces from both ends
+
+5) What is the effect of opening a file in "w" mode?
+a) It appends content to the file
+b) It reads content from the file
+c) It overwrites the file if it already exists
+d) It deletes the file
+Answer: It overwrites the file if it already exists
+
+6) What will be written in `registered.txt` if `students.txt` contains 3 names?
+a) Just the count of students
+b) The names with numbering like 1. Name
+c) Only the last student
+d) Nothing, since the file is empty initially
+Answer: The names with numbering like 1. Name
+
+7) What is the role of '\n' in the line: `new_file.write(f"{i+1}. {name}\n")`?
+a) It creates an error
+b) It writes a space
+c) It moves to a new line after each entry
+d) It removes the last line
+Answer: It moves to a new line after each entry
+
+8) Which line in the code ensures that the new file is actually created?
+a) `open("students.txt", "r")`
+b) `lines = file.readlines()`
+c) `new_file = open("registered.txt", "w")`
+d) `print(count)`
+Answer: `new_file = open("registered.txt", "w")`
+
+9) What will `len(lines)` return?
+a) The number of characters in the file
+b) The number of lines (students) in the file
+c) The size of the file in bytes
+d) The first line of the file
+Answer: The number of lines (students) in the file
+
+10) Why do we use `f"{i+1}. {name}\n"` instead of `i + name`?
+a) Because numbers and strings cannot be added directly
+b) Because `i` is a float
+c) Because we need to store binary values
+d) Because `name` is an integer
+Answer: Because numbers and strings cannot be added directly

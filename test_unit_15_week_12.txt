@@ -1,0 +1,72 @@
+
+Test for Unit 15, Week 12
+
+1) What type of graph is created in this program?
+a) Weighted graph
+b) Bipartite graph
+c) Directed graph
+d) Undirected graph
+Answer: Directed graph
+
+2) How many nodes are initially added to the graph?
+a) 9
+b) Random number
+c) 10
+d) 5
+Answer: 10
+
+3) Which library is used to handle the graph?
+a) numpy
+b) matplotlib
+c) networkx
+d) pandas
+Answer: networkx
+
+4) In `add_edges()`, what is the probability that an edge will be added between two distinct nodes?
+a) 75%
+b) 0%
+c) 25%
+d) 50%
+Answer: 50%
+
+5) Which condition in `add_edges()` ensures no self-loop is added?
+a) s != t
+b) random.random()
+c) s == t
+d) s < t
+Answer: s != t
+
+6) Which function assigns the starting points to nodes?
+a) pagerank()
+b) rank_by_points()
+c) add_edges()
+d) assign_points()
+Answer: assign_points()
+
+7) How many points does each node start with?
+a) 50
+b) 10
+c) 500
+d) 100
+Answer: 100
+
+8) If a node has no outgoing edges during distribution, what happens to its points?
+a) They remain with the same node
+b) They are doubled
+c) They are removed
+d) They are given to random nodes
+Answer: They remain with the same node
+
+9) How are points distributed if a node has multiple outgoing edges?
+a) Given entirely to the first edge
+b) Divided equally among outgoing edges
+c) Distributed randomly
+d) Not distributed
+Answer: Divided equally among outgoing edges
+
+10) Which function handles the repeated redistribution of points?
+a) rank_by_points()
+b) keep_distributing()
+c) pagerank()
+d) add_edges()
+Answer: keep_distributing()

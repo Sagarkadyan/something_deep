@@ -1,0 +1,72 @@
+
+Test for Unit 7, Week 4
+
+1) What is the output type of the function jumble_word("Moana")?
+a) List
+b) Tuple
+c) Dictionary
+d) String
+Answer: String
+
+2) Why do we use list(word) before shuffling in jumble_word?
+a) Strings are immutable, so we convert to list
+b) Strings can be shuffled directly
+c) It converts all characters to uppercase
+d) It reverses the word
+Answer: Strings are immutable, so we convert to list
+
+3) Consider the line: if guess.lower() == original.lower(): What will happen if we remove .lower() from both sides?
+a) It will make the comparison more accurate
+b) The game will stop working entirely
+c) It may incorrectly mark right answers as wrong if case differs
+d) The original variable will change
+Answer: It may incorrectly mark right answers as wrong if case differs
+
+4) Which function is used to randomize the order of items in a list in the given code?
+a) random.choice()
+b) random.shuffle()
+c) random.sort()
+d) random.sample()
+Answer: random.shuffle()
+
+5) What issue can occur with this line: jumbled = jumble_word(original)?
+a) It may return the original word in the same order
+b) It will always return the original word
+c) It causes a syntax error
+d) It deletes a letter from the word
+Answer: It may return the original word in the same order
+
+6) Which modification ensures that the jumbled word is not the same as the original?
+a) Add lower() after shuffle()
+b) Convert it to uppercase
+c) Use reverse() instead of shuffle()
+d) Add a loop to reshuffle until different
+Answer: Add a loop to reshuffle until different
+
+7) Suppose the word is "Yoda". Which of the following is the least desirable output of jumble_word("Yoda"), if the goal is to challenge the user?
+a) "odYa"
+b) "Yoda"
+c) "dayo"
+d) "odaY"
+Answer: "Yoda"
+
+8) What is the purpose of random.choice(characters)?
+a) To select a character randomly from the list
+b) To jumble all characters
+c) To sort the characters alphabetically
+d) To pick all characters one by one
+Answer: To select a character randomly from the list
+
+9) What will happen if the characters list is empty?
+a) The program will crash with IndexError
+b) The program will continue running without error
+c) The program will print a blank string
+d) The program will crash with ValueError
+Answer: The program will crash with IndexError
+
+10) Which of the following is the best way to score the user if you want to turn this into a 5-round game?
+a) Add 5 to score after every round
+b) Create a list of 5 questions and loop with a score variable
+c) Print the score inside the jumble_word function
+d) Use break instead of score
+Answer: Create a list of 5 questions and loop with a score variable

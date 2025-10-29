@@ -13,6 +13,7 @@ const errorMessage = document.getElementById('error-message');
 const explainBtn = document.getElementById('explain-btn');
 const explanationContainer = document.getElementById('explanation-container');
 const explanationText = document.getElementById('explanation-text');
+const revealAnswerBtn = document.getElementById('reveal-answer-btn');
 
 let questions = [];
 let currentQuestionIndex = 0;
@@ -55,6 +56,8 @@ function showQuestion() {
   questionEl.textContent = currentQuestion.question;
   optionsContainer.innerHTML = '';
   explainBtn.classList.add('hidden');
+  revealAnswerBtn.classList.remove('hidden');
+  revealAnswerBtn.disabled = false;
   explanationContainer.classList.add('hidden');
   explanationText.textContent = '';
 
@@ -84,6 +87,7 @@ function selectAnswer(button, selectedOption, correctAnswer) {
     btn.disabled = true;
   });
 
+  revealAnswerBtn.classList.add('hidden');
   nextBtn.classList.remove('hidden');
   explainBtn.classList.remove('hidden');
 }
@@ -123,6 +127,22 @@ function showResult() {
 
 restartBtn.addEventListener('click', fetchQuestions);
 nextBtn.addEventListener('click', showNextQuestion);
+
+revealAnswerBtn.addEventListener('click', () => {
+  const currentQuestion = questions[currentQuestionIndex];
+  const correctAnswer = currentQuestion.answer;
+
+  Array.from(optionsContainer.children).forEach(btn => {
+    if (btn.textContent === correctAnswer) {
+      btn.classList.add('correct');
+    }
+    btn.disabled = true;
+  });
+
+  revealAnswerBtn.classList.add('hidden'); // Hide after revealing
+  explainBtn.classList.remove('hidden');
+  nextBtn.classList.remove('hidden');
+});
 
 explainBtn.addEventListener('click', () => {
   const currentQuestion = questions[currentQuestionIndex];
@@ -172,6 +192,9 @@ const feedbackTextEl = document.getElementById('feedback-text');
 const getSolutionBtn = document.getElementById('get-solution-btn');
 const solutionContainer = document.getElementById('solution-container');
 
+const prevCodingBtn = document.getElementById('prev-coding-btn');
+console.log('prevCodingBtn element:', prevCodingBtn);
+
 let codingQuestions = [];
 let currentCodingQuestionIndex = 0;
 
@@ -184,6 +207,7 @@ showQuizBtn.addEventListener('click', () => {
 });
 
 showCodingBtn.addEventListener('click', () => {
+  console.log('Coding Practice button clicked.');
   quizContainer.classList.add('hidden');
   resultContainer.classList.add('hidden'); // Also hide quiz result container
   codingContainer.classList.remove('hidden');
@@ -191,10 +215,11 @@ showCodingBtn.addEventListener('click', () => {
 });
 
 async function loadCodingQuestions() {
+  console.log('loadCodingQuestions called.');
   // Only fetch if not already loaded
   if (codingQuestions.length === 0) {
     try {
-      const res = await fetch('coding_questions.json');
+      const res = await fetch('/coding-questions');
       if (!res.ok) {
         throw new Error(`Failed to load coding questions. Status: ${res.status}`);
       }
@@ -203,7 +228,12 @@ async function loadCodingQuestions() {
         throw new Error('No coding questions found in the file.');
       }
       codingQuestions = data;
-      currentCodingQuestionIndex = 0;
+      const savedIndex = localStorage.getItem('currentCodingQuestionIndex');
+      if (savedIndex !== null) {
+          currentCodingQuestionIndex = parseInt(savedIndex, 10);
+      } else {
+          currentCodingQuestionIndex = 0;
+      }
       showCodingQuestion();
     } catch (error) {
       console.error(error);
@@ -213,10 +243,32 @@ async function loadCodingQuestions() {
 }
 
 function showCodingQuestion() {
+  console.log('showCodingQuestion called. currentCodingQuestionIndex:', currentCodingQuestionIndex);
+  localStorage.setItem('currentCodingQuestionIndex', currentCodingQuestionIndex);
   resetCodingState();
   const question = codingQuestions[currentCodingQuestionIndex];
   codingQuestionEl.textContent = question.question;
+  codeAnswerEl.value = question.user_code || ''; // Load previous user code if available
   submitCodeBtn.disabled = false;
+
+  // Manage visibility of prevCodingBtn
+  if (currentCodingQuestionIndex === 0) {
+    prevCodingBtn.classList.add('hidden');
+    console.log('prevCodingBtn hidden.');
+  } else {
+    prevCodingBtn.classList.remove('hidden');
+    console.log('prevCodingBtn visible.');
+  }
+
+  // Ensure getSolutionBtn is visible initially if there's a solution
+  if (question.answer) {
+    getSolutionBtn.classList.remove('hidden');
+    getSolutionBtn.disabled = false; // Re-enable the button
+    console.log('getSolutionBtn visible.');
+  } else {
+    getSolutionBtn.classList.add('hidden');
+    console.log('getSolutionBtn hidden.');
+  }
 }
 
 function resetCodingState() {
@@ -224,6 +276,7 @@ function resetCodingState() {
   feedbackContainer.classList.add('hidden');
   feedbackContainer.classList.remove('correct', 'incorrect');
   getSolutionBtn.classList.add('hidden');
+  getSolutionBtn.disabled = false; // Re-enable the button on reset
   solutionContainer.classList.add('hidden');
   solutionContainer.textContent = '';
 }
@@ -278,34 +331,11 @@ submitCodeBtn.addEventListener('click', async () => {
   }
 });
 
-getSolutionBtn.addEventListener('click', async () => {
-    const question = codingQuestions[currentCodingQuestionIndex].question;
-    getSolutionBtn.disabled = true;
-    solutionContainer.textContent = 'Loading solution...';
+getSolutionBtn.addEventListener('click', () => {
+    const currentQuestion = codingQuestions[currentCodingQuestionIndex];
+    solutionContainer.textContent = currentQuestion.answer || 'Solution not available.';
     solutionContainer.classList.remove('hidden');
-
-    try {
-        const res = await fetch('/get-solution', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ question }),
-        });
-
-        if (!res.ok) {
-            throw new Error(`API Error: ${res.statusText}`);
-        }
-
-        const result = await res.json();
-        solutionContainer.textContent = result.solution;
-
-    } catch (error) {
-        console.error('Failed to get solution:', error);
-        solutionContainer.textContent = `Could not retrieve the solution at this time. (${error.message})`;
-    } finally {
-        getSolutionBtn.disabled = false;
-    }
+    getSolutionBtn.disabled = true;
 });
 
 nextCodingBtn.addEventListener('click', () => {
@@ -314,6 +344,13 @@ nextCodingBtn.addEventListener('click', () => {
     showCodingQuestion();
   } else {
     codingContainer.innerHTML = '<h2>You have completed all the coding challenges!</h2>';
+  }
+});
+
+prevCodingBtn.addEventListener('click', () => {
+  if (currentCodingQuestionIndex > 0) {
+    currentCodingQuestionIndex--;
+    showCodingQuestion();
   }
 });
 
