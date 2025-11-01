@@ -1,359 +1,41 @@
-const quizArea = document.getElementById('quiz-area');
-const questionContainer = document.getElementById('question-container');
+const flashcard = document.querySelector('.flashcard');
 const questionEl = document.getElementById('question');
-const optionsContainer = document.getElementById('options-container');
+const answerEl = document.getElementById('answer');
+const flipBtn = document.getElementById('flip-btn');
 const nextBtn = document.getElementById('next-btn');
-const resultContainer = document.getElementById('result-container');
-const scoreEl = document.getElementById('score');
-const highscoreEl = document.getElementById('highscore');
-const restartBtn = document.getElementById('restart-btn');
-const errorContainer = document.getElementById('error-container');
-const errorMessage = document.getElementById('error-message');
+const progressText = document.getElementById('progress-text');
 
-const explainBtn = document.getElementById('explain-btn');
-const explanationContainer = document.getElementById('explanation-container');
-const explanationText = document.getElementById('explanation-text');
-const revealAnswerBtn = document.getElementById('reveal-answer-btn');
+const flashcards = [{"topic": "Week 1: Scratch", "question": "What is the purpose of the 'repeat' block in Scratch?", "answer": "To execute a set of instructions a specific number of times (a loop)."}, {"topic": "Week 2: Python Basics", "question": "What is the difference between '==' and '=' in Python?", "answer": "'==' is the equality operator (compares two values), while '=' is the assignment operator (assigns a value to a variable)."}, {"topic": "Week 2: Python Basics", "question": "How do you get user input in Python?", "answer": "Using the `input()` function. For example, `name = input('Enter your name: ')`."}, {"topic": "Week 2: Python Basics", "question": "What is the syntax for an 'if-elif-else' statement in Python?", "answer": "if condition1:\n  # code\nelif condition2:\n  # code\nelse:\n  # code"}, {"topic": "Week 4: Lists", "question": "How do you add an element to the end of a list in Python?", "answer": "Using the `.append()` method. For example, `my_list.append('new_item')`."}, {"topic": "Week 4: Lists", "question": "What is list slicing in Python? Give an example.", "answer": "Slicing is used to get a sub-list from a list. Example: `my_list[1:4]` gets elements from index 1 to 3."}, {"topic": "Week 4: Lists", "question": "What is a 2D list (matrix) in Python?", "answer": "A list of lists, used to represent a grid or table. For example, `matrix = [[1, 2], [3, 4]]`."}, {"topic": "Week 6: Dictionaries", "question": "How do you create a dictionary in Python?", "answer": "Using curly braces `{}` with key-value pairs. Example: `my_dict = {'name': 'John', 'age': 30}`."}, {"topic": "Week 6: Dictionaries", "question": "How do you access a value in a dictionary?", "answer": "Using the key in square brackets `[]`. Example: `my_dict['name']` would return 'John'."}, {"topic": "Week 8: Tuples", "question": "What is the main difference between a list and a tuple in Python?", "answer": "Lists are mutable (can be changed), while tuples are immutable (cannot be changed)."}, {"topic": "Week 8: Image Processing (PIL)", "question": "Which library is commonly used for image processing in Python?", "answer": "The Python Imaging Library (PIL), often used as the `Pillow` fork."}, {"topic": "Week 8: Image Processing (PIL)", "question": "How do you open an image using PIL?", "answer": "Using `Image.open('image_path.jpg')`."}, {"topic": "Week 9: NetworkX", "question": "What is a 'node' in a graph?", "answer": "A fundamental unit of a graph, representing an entity (e.g., a person, a city)."}, {"topic": "Week 9: NetworkX", "question": "What is an 'edge' in a graph?", "answer": "A connection between two nodes, representing a relationship."}, {"topic": "Week 9: NetworkX", "question": "How do you find the shortest path between two nodes in NetworkX?", "answer": "Using `nx.shortest_path(graph, node1, node2)`."}, {"topic": "Week 10: File I/O", "question": "What is the difference between 'r' and 'w' file modes in Python?", "answer": "'r' is for reading a file, and 'w' is for writing to a file (will overwrite the file if it exists)."}, {"topic": "Week 10: Image Quantization", "question": "What is image quantization?", "answer": "The process of reducing the number of distinct colors in an image."}, {"topic": "Week 11: Selenium", "question": "What is Selenium used for?", "answer": "Automating web browser interactions."}, {"topic": "Week 11: Selenium", "question": "How do you find an element by its ID using Selenium?", "answer": "`driver.find_element(By.ID, 'element_id')`."}, {"topic": "Week 11: Datetime", "question": "How do you get the current date and time in Python?", "answer": "Using `datetime.datetime.now()`."}, {"topic": "Week 12: PageRank", "question": "What is the basic idea of the PageRank algorithm?", "answer": "It measures the importance of a webpage by counting the number and quality of links to it."}
+];
+let currentCardIndex = 0;
 
-let questions = [];
-let currentQuestionIndex = 0;
-let score = 0;
-
-function showError(message) {
-    errorMessage.textContent = message;
-    errorContainer.classList.remove('hidden');
-    quizArea.classList.add('hidden');
-}
-
-function fetchQuestions() {
-    fetch('/questions')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (!Array.isArray(data) || data.length === 0) {
-                showError('No questions received from the server.');
-                return;
-            }
-            questions = data;
-            currentQuestionIndex = 0;
-            score = 0;
-            quizArea.classList.remove('hidden');
-            resultContainer.classList.add('hidden');
-            errorContainer.classList.add('hidden');
-            showQuestion();
-        })
-        .catch(error => {
-            showError('There has been a problem with your fetch operation: ' + error.message);
-        });
-}
-
-function showQuestion() {
-  const currentQuestion = questions[currentQuestionIndex];
-  questionEl.textContent = currentQuestion.question;
-  optionsContainer.innerHTML = '';
-  explainBtn.classList.add('hidden');
-  revealAnswerBtn.classList.remove('hidden');
-  revealAnswerBtn.disabled = false;
-  explanationContainer.classList.add('hidden');
-  explanationText.textContent = '';
-
-  currentQuestion.options.forEach(option => {
-    const button = document.createElement('button');
-    button.textContent = option;
-    button.addEventListener('click', () => selectAnswer(button, option, currentQuestion.answer));
-    optionsContainer.appendChild(button);
-  });
-}
-
-function selectAnswer(button, selectedOption, correctAnswer) {
-  if (selectedOption === correctAnswer) {
-    button.classList.add('correct');
-    score++;
-  } else {
-    button.classList.add('incorrect');
-    Array.from(optionsContainer.children).forEach(btn => {
-      if (btn.textContent === correctAnswer) {
-        btn.classList.add('correct');
-      }
-    });
-  }
-
-  // Disable all buttons after an answer is selected
-  Array.from(optionsContainer.children).forEach(btn => {
-    btn.disabled = true;
-  });
-
-  revealAnswerBtn.classList.add('hidden');
-  nextBtn.classList.remove('hidden');
-  explainBtn.classList.remove('hidden');
-}
-
-function showNextQuestion() {
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    showQuestion();
-    nextBtn.classList.add('hidden');
-  } else {
-    showResult();
-  }
-}
-
-function showResult() {
-  quizArea.classList.add('hidden');
-  resultContainer.classList.remove('hidden');
-  scoreEl.textContent = `${score} / ${questions.length}`;
-
-  fetch('/highscore')
-    .then(response => response.json())
-    .then(data => {
-      let highscore = data.highscore;
-      if (score > highscore) {
-        highscore = score;
-        fetch('/highscore', {
-          method: 'POST', 
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ score: score })
-        });
-      }
-      highscoreEl.textContent = highscore;
-    });
-}
-
-restartBtn.addEventListener('click', fetchQuestions);
-nextBtn.addEventListener('click', showNextQuestion);
-
-revealAnswerBtn.addEventListener('click', () => {
-  const currentQuestion = questions[currentQuestionIndex];
-  const correctAnswer = currentQuestion.answer;
-
-  Array.from(optionsContainer.children).forEach(btn => {
-    if (btn.textContent === correctAnswer) {
-      btn.classList.add('correct');
-    }
-    btn.disabled = true;
-  });
-
-  revealAnswerBtn.classList.add('hidden'); // Hide after revealing
-  explainBtn.classList.remove('hidden');
-  nextBtn.classList.remove('hidden');
-});
-
-explainBtn.addEventListener('click', () => {
-  const currentQuestion = questions[currentQuestionIndex];
-  const prompt = `Explain why the answer to the question "${currentQuestion.question}" is "${currentQuestion.answer}".`;
-
-  explanationText.textContent = 'Loading explanation...';
-  explanationContainer.classList.remove('hidden');
-
-  fetch('/explain', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ prompt: prompt })
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.error) {
-      explanationText.textContent = `Error: ${data.error}`;
+function showCard() {
+    if (currentCardIndex < flashcards.length) {
+        const card = flashcards[currentCardIndex];
+        questionEl.textContent = card.question;
+        answerEl.textContent = card.answer;
+        progressText.textContent = `Card ${currentCardIndex + 1} of ${flashcards.length}`;
+        flashcard.classList.remove('flipped');
     } else {
-      explanationText.textContent = data.explanation;
+        questionEl.textContent = "You've completed all the flashcards!";
+        answerEl.textContent = "";
+        progressText.textContent = "";
+        flipBtn.disabled = true;
+        nextBtn.disabled = true;
     }
-  })
-  .catch(error => {
-      explanationText.textContent = `Error: ${error.message}`;
-  });
-});
-
-// Initial fetch for the quiz
-fetchQuestions();
-
-// --- Appended JS for Coding Practice ---
-
-const codingContainer = document.getElementById('coding-container');
-const quizContainer = document.querySelector('.quiz-container');
-const showQuizBtn = document.getElementById('show-quiz-btn');
-const showCodingBtn = document.getElementById('show-coding-btn');
-
-const codingQuestionEl = document.getElementById('coding-question');
-const codeAnswerEl = document.getElementById('code-answer');
-const submitCodeBtn = document.getElementById('submit-code-btn');
-const nextCodingBtn = document.getElementById('next-coding-btn');
-
-const feedbackContainer = document.getElementById('feedback-container');
-const feedbackTitleEl = document.getElementById('feedback-title');
-const feedbackTextEl = document.getElementById('feedback-text');
-const getSolutionBtn = document.getElementById('get-solution-btn');
-const solutionContainer = document.getElementById('solution-container');
-
-const prevCodingBtn = document.getElementById('prev-coding-btn');
-console.log('prevCodingBtn element:', prevCodingBtn);
-
-let codingQuestions = [];
-let currentCodingQuestionIndex = 0;
-
-// Navigation
-showQuizBtn.addEventListener('click', () => {
-  quizContainer.classList.remove('hidden');
-  codingContainer.classList.add('hidden');
-  // Reset quiz state if needed
-  fetchQuestions(); 
-});
-
-showCodingBtn.addEventListener('click', () => {
-  console.log('Coding Practice button clicked.');
-  quizContainer.classList.add('hidden');
-  resultContainer.classList.add('hidden'); // Also hide quiz result container
-  codingContainer.classList.remove('hidden');
-  loadCodingQuestions();
-});
-
-async function loadCodingQuestions() {
-  console.log('loadCodingQuestions called.');
-  // Only fetch if not already loaded
-  if (codingQuestions.length === 0) {
-    try {
-      const res = await fetch('/coding-questions');
-      if (!res.ok) {
-        throw new Error(`Failed to load coding questions. Status: ${res.status}`);
-      }
-      const data = await res.json();
-      if (!Array.isArray(data) || data.length === 0) {
-        throw new Error('No coding questions found in the file.');
-      }
-      codingQuestions = data;
-      const savedIndex = localStorage.getItem('currentCodingQuestionIndex');
-      if (savedIndex !== null) {
-          currentCodingQuestionIndex = parseInt(savedIndex, 10);
-      } else {
-          currentCodingQuestionIndex = 0;
-      }
-      showCodingQuestion();
-    } catch (error) {
-      console.error(error);
-      codingQuestionEl.textContent = `Error loading questions: ${error.message}`;
-    }
-  }
 }
 
-function showCodingQuestion() {
-  console.log('showCodingQuestion called. currentCodingQuestionIndex:', currentCodingQuestionIndex);
-  localStorage.setItem('currentCodingQuestionIndex', currentCodingQuestionIndex);
-  resetCodingState();
-  const question = codingQuestions[currentCodingQuestionIndex];
-  codingQuestionEl.textContent = question.question;
-  codeAnswerEl.value = question.user_code || ''; // Load previous user code if available
-  submitCodeBtn.disabled = false;
-
-  // Manage visibility of prevCodingBtn
-  if (currentCodingQuestionIndex === 0) {
-    prevCodingBtn.classList.add('hidden');
-    console.log('prevCodingBtn hidden.');
-  } else {
-    prevCodingBtn.classList.remove('hidden');
-    console.log('prevCodingBtn visible.');
-  }
-
-  // Ensure getSolutionBtn is visible initially if there's a solution
-  if (question.answer) {
-    getSolutionBtn.classList.remove('hidden');
-    getSolutionBtn.disabled = false; // Re-enable the button
-    console.log('getSolutionBtn visible.');
-  } else {
-    getSolutionBtn.classList.add('hidden');
-    console.log('getSolutionBtn hidden.');
-  }
+function flipCard() {
+    flashcard.classList.toggle('flipped');
 }
 
-function resetCodingState() {
-  codeAnswerEl.value = '';
-  feedbackContainer.classList.add('hidden');
-  feedbackContainer.classList.remove('correct', 'incorrect');
-  getSolutionBtn.classList.add('hidden');
-  getSolutionBtn.disabled = false; // Re-enable the button on reset
-  solutionContainer.classList.add('hidden');
-  solutionContainer.textContent = '';
+function nextCard() {
+    currentCardIndex++;
+    showCard();
 }
 
-submitCodeBtn.addEventListener('click', async () => {
-  const question = codingQuestions[currentCodingQuestionIndex].question;
-  const code = codeAnswerEl.value;
+flipBtn.addEventListener('click', flipCard);
+nextBtn.addEventListener('click', nextCard);
+flashcard.addEventListener('click', flipCard);
 
-  if (!code.trim()) {
-    alert('Please write some code before submitting.');
-    return;
-  }
-
-  submitCodeBtn.disabled = true;
-  feedbackContainer.classList.remove('hidden');
-  feedbackContainer.classList.remove('correct', 'incorrect');
-  feedbackTitleEl.textContent = 'Evaluating...';
-  feedbackTextEl.textContent = 'Please wait while your code is being checked.';
-
-  try {
-    const res = await fetch('/evaluate-code', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ question, code }),
-    });
-
-    if (!res.ok) {
-      throw new Error(`API Error: ${res.statusText}`);
-    }
-
-    const feedback = await res.json();
-    
-    if (feedback.correct) {
-      feedbackContainer.classList.add('correct');
-      feedbackTitleEl.textContent = 'Correct!';
-      feedbackTextEl.textContent = feedback.explanation || 'Well done!';
-      getSolutionBtn.classList.add('hidden');
-    } else {
-      feedbackContainer.classList.add('incorrect');
-      feedbackTitleEl.textContent = 'Incorrect';
-      feedbackTextEl.textContent = feedback.explanation || 'Try again!';
-      getSolutionBtn.classList.remove('hidden');
-    }
-
-  } catch (error) {
-    console.error('Submission failed:', error);
-    feedbackContainer.classList.add('incorrect');
-    feedbackTitleEl.textContent = 'Error';
-    feedbackTextEl.textContent = `Could not submit your answer. Is the backend server running? (${error.message})`;
-  }
-});
-
-getSolutionBtn.addEventListener('click', () => {
-    const currentQuestion = codingQuestions[currentCodingQuestionIndex];
-    solutionContainer.textContent = currentQuestion.answer || 'Solution not available.';
-    solutionContainer.classList.remove('hidden');
-    getSolutionBtn.disabled = true;
-});
-
-nextCodingBtn.addEventListener('click', () => {
-  currentCodingQuestionIndex++;
-  if (currentCodingQuestionIndex < codingQuestions.length) {
-    showCodingQuestion();
-  } else {
-    codingContainer.innerHTML = '<h2>You have completed all the coding challenges!</h2>';
-  }
-});
-
-prevCodingBtn.addEventListener('click', () => {
-  if (currentCodingQuestionIndex > 0) {
-    currentCodingQuestionIndex--;
-    showCodingQuestion();
-  }
-});
-
-// Initial state: show quiz, hide coding
-quizContainer.classList.remove('hidden');
-codingContainer.classList.add('hidden');
+showCard();
