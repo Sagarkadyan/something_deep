@@ -44,13 +44,13 @@ I have 39 keywords. in which 4 soft keywords and 35 are hard keywords
 
 ### **tuple** :
 
-* tuple are inmutable
+* tuple are immutable
 
 
 
 * stores every type
 
-&nbsp;
+ 
 
 ### slicing :
 
@@ -58,29 +58,29 @@ I have 39 keywords. in which 4 soft keywords and 35 are hard keywords
 
 
 
-● It is the process of fetching multiple characters from the 
+● It is the process of fetching multiple characters from the
 
-collection at the same time using positive indexing. 
+collection at the same time using positive indexing.
 
-● Syntax: var\[start index : end index+1 : step value/updation] 
+● Syntax: var\[start index : end index+1 : step value/updation]
 
-● Where, 
+● Where,
 
-● Start index is the index of the character we want to start 
+● Start index is the index of the character we want to start
 
-from. 
+from.
 
-● End index is the index of the character till where we want to 
+● End index is the index of the character till where we want to
 
-fetch the characters. 
+fetch the characters.
 
-● Step value is the number of steps we are taking to reach 
+● Step value is the number of steps we are taking to reach
 
-from one character to another. 
+from one character to another.
 
-● eg: 
+● eg:
 
-s=”python” 
+s=”python”
 
 If we want to fetch ‘thon’ from this collection we can use positive slicing.
 
@@ -90,7 +90,7 @@ If we want to fetch ‘thon’ from this collection we can use positive slicing.
 
 
 
-### &nbsp;Negative slicing:
+###  Negative slicing:
 
 
 
@@ -98,16 +98,48 @@ If we want to fetch ‘thon’ from this collection we can use positive slicing.
 
 
 
-It is the process of fetching more than one character at a single time with 
+It is the process of fetching more than one character at a single time with
 
-* the help of negative indexes. 
-
-
+* the help of negative indexes.
 
 
 
 
 
+### operations on multi valued data type:
+
+
+
+#### Add operations:
+
+
+
+1. \- .Append (add in the end of line)
+2. \- .insert(insert new element at given index)
+3. \- .Extend (add multiple value in the end of line of code)
+4. \- .Concatenation(
+5.  its working on in place(it modifies or change the list but does not create new list) insertion
+
+
+
+
+
+#### Access operation:
+
+
+
+* my list \[index\_value]
+* my list \[start : stop]
+
+
+
+
+
+#### update operation:
+
+
+
+mylist\[index\_value] = change/replace to update
 
 
 
@@ -116,5 +148,10 @@ It is the process of fetching more than one character at a single time with
 
 
 
-&nbsp;
+
+
+
+
+
+ 
 
